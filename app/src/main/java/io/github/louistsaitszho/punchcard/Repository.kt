@@ -12,11 +12,13 @@ interface Repository {
 
     suspend fun getAllCards(): List<Card>
 
-    suspend fun orderAllCards(newOrder: Map<CardID, Position>): List<Card>
+    suspend fun reorderCards(newOrder: Map<CardID, Position>): List<Card>
 
     suspend fun addCard(cardName: String): Card
 
     suspend fun removeCard(card: Card)
+
+    suspend fun renameCard(cardID: CardID, newName: String): Card
 
     suspend fun startShift(card: Card): Shift
 
