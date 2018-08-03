@@ -5,9 +5,10 @@ import java.util.*
 typealias CardID = UUID
 typealias Position = Int
 
-//TODO since LocalStorage is abstracted, I can add implementation anyway
+/**
+ * This is the definition of all the methods of the model that the app has access to.
+ */
 interface Repository {
-    val localStorage: LocalStorage
 
     suspend fun getAllCards(): List<Card>
 
@@ -23,5 +24,8 @@ interface Repository {
 
     suspend fun removeShift(shift: Shift)
 
-    //TODO start & end breaks?
+    suspend fun startBreak(shift: Shift): Shift
+
+    suspend fun endBreak(shift: Shift): Shift
+
 }
